@@ -15,6 +15,4 @@
 
 ###### Test de la dernière route avec le code sql suivant dans le corps
 
-    `{
-  "query": "SELECT * FROM product WHERE brand = 'Nike'"
-     }`
+    `{"query": "SELECT * FROM product WHERE brand = 'Nike'"}`
