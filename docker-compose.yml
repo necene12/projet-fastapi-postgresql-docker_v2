@@ -1,0 +1,31 @@
+
+version: '3'
+
+services:
+  api:
+    build: .
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=metoo
+      - POSTGRES_PASSWORD=metoo
+      - POSTGRES_DB=db_product
+      - DATABASE_URL=postgresql://metoo:metoo@db/db_product
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=metoo
+      - POSTGRES_PASSWORD=metoo
+      - POSTGRES_DB=db_product
+    expose:
+      - 5432
+    volumes:
+      - pgdata:/var/lib/docker/volumes/pgdata/_data
+
+volumes:
+  pgdata:
