@@ -5,9 +5,11 @@
  * docker-compose
 
 ###### Installation
- * lancer le script suivant à la racine du fichier app/
+ * Aller dans le répertoire app/
+   `cd app`
+ * lancer le script suivant à la racine du dossier app/
    `chmod +x setup.sh`
- * Lancer le script
+ * Lancer le script du dossier app/
    `./setup.sh`
 
 ###### Vérifications:
