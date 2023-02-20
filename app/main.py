@@ -10,7 +10,7 @@ import database
 
 app = FastAPI()
 
-# Dependency
+# Fonction de connexion
 def get_db():
     db = database.SessionLocal()
     try:
@@ -22,7 +22,7 @@ def get_db():
 def create_db(db: Session = Depends(get_db)):
     try:
         database.Base.metadata.create_all(bind=database.engine)
-        return {"message": "Database created."}
+        return {"message": "Base de données a été créée avec Succès"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -61,7 +61,7 @@ def insert_data(db: Session = Depends(get_db)):
                 db_product = models.Product(**product.dict())
                 db.add(db_product)
             db.commit()
-        return {"message": "Data inserted."}
+        return {"message": "Données insérées avec succès"}
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
@@ -70,5 +70,5 @@ def insert_data(db: Session = Depends(get_db)):
 def query_database(query: str, db: Session = Depends(get_db)):
     result = db.execute(query).fetchall()
     if not result:
-        raise HTTPException(status_code=404, detail="Aucun résultat trouvé.")
+        raise HTTPException(status_code=404, detail="Aucun résultat trouvé")
     return JSONResponse(content=result)

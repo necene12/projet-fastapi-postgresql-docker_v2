@@ -1,15 +1,18 @@
 #### API FastAPI avec PostgreSQL et SQLAlchemy
 
 ###### Prérequis
+ * Python
  * Docker
  * docker-compose
 
 ###### Installation
- * Aller dans le répertoire app/
+ * Aller dans le répertoire app/ avec la commande suivante : 
    `cd app`
- * lancer le script suivant à la racine du dossier app/
+ * Lancer le script python suivant dans le dossier app/ pour préparer les données à importer dans la base de données postgresql :
+   `python3 script_data_prep.py`
+ * Lancer le script bash suivant dans le dossier app/ afin de donner les droit d'exécusion au fichier setup.sh :
    `chmod +x setup.sh`
- * Lancer le script du dossier app/
+ *  Lander la commande suivante dans le  dossier app/ pour exécuter l'api et la base de données : 
    `./setup.sh`
 
 ###### Vérifications:
@@ -17,4 +20,4 @@
 
 ###### Test de la dernière route avec le code sql suivant dans le corps
 
-    `{"query": "SELECT * FROM product WHERE brand = 'Acer'"}`
+    `{"query": "SELECT * FROM products WHERE brand = 'Acer'"}`
