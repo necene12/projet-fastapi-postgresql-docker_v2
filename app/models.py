@@ -10,7 +10,7 @@ class ProductBase(BaseModel):
     date_seen: Optional[str]
     is_sale: Optional[bool]
     merchant: Optional[str]
-    shipping: Optional[float]
+    shipping: Optional[str]
     source_urls: Optional[str]
     asins: Optional[str]
     brand: Optional[str]
@@ -31,7 +31,7 @@ class ProductCreate(ProductBase):
     pass
 
 class Product(ProductBase):
-    id: int
+    id: str
 
     class Config:
         orm_mode = True

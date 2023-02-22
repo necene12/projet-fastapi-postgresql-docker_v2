@@ -13,7 +13,7 @@ Base = declarative_base()
 class Product(Base):
     __tablename__ = "products"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True)
     amount_max = Column(Float)
     amount_min = Column(Float)
     availability = Column(String)
